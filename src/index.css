@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-primary: #0a0f1c;
+  --color-secondary: #141b2d;
+  --color-accent: #3F5EF7;
+  --color-light: #EAF1FF;
+}
+
+@layer base {
+  body {
+    @apply text-slate-300 bg-[#0a0f1c] antialiased font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-black tracking-tighter text-white uppercase;
+  }
+}
+
+/* Lenis Smooth Scroll Base CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Hide default cursor on desktop */
+@media (pointer: fine) {
+  body, a, button, input, select, textarea {
+    cursor: none !important;
+  }
+}
+
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.glass-nav {
+  @apply bg-[#0a0f1c]/80 backdrop-blur-xl border-b border-white/5 shadow-sm;
+}
+
+.btn-primary {
+  @apply bg-accent text-white px-8 py-4 rounded-none font-bold uppercase tracking-widest transition-all duration-300 shadow-lg shadow-accent/20;
+}
+
+@media (hover: hover) {
+  .btn-primary:hover {
+    @apply bg-white text-primary;
+  }
+}
+
+.btn-outline {
+  @apply border border-white/20 text-white px-8 py-4 rounded-none font-bold uppercase tracking-widest transition-all duration-300;
+}
+
+@media (hover: hover) {
+  .btn-outline:hover {
+    @apply bg-white text-primary;
+  }
+}
+
+.card-modern {
+  @apply bg-white/5 backdrop-blur-xl border border-white/5 rounded-none shadow-none transition-all duration-500;
+}
+
+@media (hover: hover) {
+  .card-modern:hover {
+    @apply bg-white/10 border-white/20;
+  }
+}
+
+/* Safe hover for cards that invert colors */
+.card-invert-hover {
+  @apply transition-all duration-700;
+}
+
+@media (hover: hover) {
+  .card-invert-hover:hover {
+    @apply bg-white;
+  }
+}
+
+/* Prevent sticky group-hover on touch devices */
+@media (hover: none) {
+  .group:hover {
+    background-color: inherit !important;
+  }
+  .group:hover * {
+    color: inherit !important;
+    transform: none !important;
+  }
+  .text-transparent {
+    color: white !important;
+    -webkit-text-stroke: 0 !important;
+  }
+}
+
+/* Orano-style grid lines */
+.grid-lines {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
